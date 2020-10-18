@@ -8,11 +8,11 @@ lint:
 test:
 	@go test -cover ./...
 
-cover:
-	@go test -coverpkg=./internal/... -coverprofile=cover.out ./internal/... > /dev/null
-	@sed -i '/mock.go/d' cover.out
-	@sed -i '\#/mocks#d' cover.out
-	@go tool cover -func cover.out
+coverage:
+	@go test -coverpkg=./internal/... -coverprofile=coverage.out ./internal/... > /dev/null
+	@sed -i '/mock.go/d' coverage.out
+	@sed -i '\#/mocks#d' coverage.out
+	@go tool cover -func coverage.out
 
 build:
 	@echo "  >  Building binary..."
